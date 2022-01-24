@@ -78,7 +78,8 @@ file_int = 0
 new_file_tmp = "#{split_path_name}/#{split_name}-%d.csv"
 new_file = sprintf new_file_tmp, file_int
 headers = [];
-csv_open_parameters = {headers: true, encoding: "UTF-8", quote_char: '"', col_sep: opts[:delimiter]}
+puts 'Forcing encoding with ISO-8859-1'
+csv_open_parameters = {headers: true, encoding: 'ISO-8859-1', quote_char: '"', col_sep: opts[:delimiter]}
 
 # get the number of rows in the file for remainder checking
 row_total = CSV.foreach(file, csv_open_parameters).count
